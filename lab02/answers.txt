@@ -1,0 +1,5 @@
+Có, Java cho phép bạn tạo nhiều constructor trong một lớp, một khái niệm được gọi là quá tải constructor. 
+Quá tải constructor cho phép bạn định nghĩa nhiều constructor với các tập hợp tham số khác nhau. Mỗi constructor 
+phải có một danh sách tham số duy nhất, cho phép Java phân biệt giữa chúng dựa trên số lượng và kiểu đối số được 
+truyền khi tạo một thể hiện của lớp.
+
