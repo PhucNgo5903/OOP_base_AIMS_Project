@@ -30,12 +30,13 @@ public class Aims {
             18.99f // Cost
         );
        
-        anOrderPhucNH.addDigitalVideoDisc(dvd1PhucNH, dvd2PhucNH);  
+        System.out.println("Ngo Hoang Phuc 20225903. ID of dvd1PhucNH: " + dvd1PhucNH.getIdPhucNH());
+        System.out.println("Ngo Hoang Phuc 20225903. ID of dvd2PhucNH: " + dvd2PhucNH.getIdPhucNH());
+        System.out.println("Ngo Hoang Phuc 20225903. ID of dvd3PhucNH: " + dvd3PhucNH.getIdPhucNH());
+        //anOrderPhucNH.addDigitalVideoDisc(dvd1PhucNH, dvd2PhucNH);  
         // DigitalVideoDisc[] dvdListPhucNgo = {dvd2PhucNH, dvd3PhucNH};
         //anOrderPhucNH.addDigitalVideoDisc(dvdListPhucNgo);
-
         //Print the total cost of items in the cart
-        //anOrderPhucNH.addDigitalVideoDisc(dvd1PhucNH, dvd2PhucNH);
         // System.out.println("Ngo Hoang Phuc 20225903. Total Cost is: ");
         // System.out.println(anOrderPhucNH.totalCost());
         //Remove the first DVD from the cart
@@ -43,4 +44,6 @@ public class Aims {
         // anOrderPhucNH.print();  
     }
 }
+
+        
 

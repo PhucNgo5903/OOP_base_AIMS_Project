@@ -32,7 +32,6 @@ public class TestPassingParameter {
         o1PhucNH = o2PhucNH;
         o2PhucNH = tmpPhucNH;   
     }
-
     // Correct swap() function
     public static void swap(DigitalVideoDiscWrapper o1PhucNH, DigitalVideoDiscWrapper o2PhucNH) {
         DigitalVideoDisc tmpPhucNH = o1PhucNH.dvdPhucNH;
