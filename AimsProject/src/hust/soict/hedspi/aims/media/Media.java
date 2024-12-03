@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims.media;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public abstract class Media {
     // Attributes
@@ -8,6 +9,11 @@ public abstract class Media {
     private String titlePhucNH; // Title of the media
     private String categoryPhucNH; // Category of the media
     private float costPhucNH; // Cost of the media
+
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = 
+            new MediaComparatorByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE =
+            new MediaComparatorByCostTitle();
 
     // Constructors
     public Media(int idPhucNH, String titlePhucNH) {
@@ -49,6 +55,14 @@ public abstract class Media {
 
     public void setCostPhucNH(float costPhucNH){this.costPhucNH = costPhucNH;}
 
+    public boolean isMatchPhucNH(String title) {
+        return this.titlePhucNH.toLowerCase().contains(title.toLowerCase());
+    }
+
+    public void play() {
+        System.out.println("Playing media");
+    }
+
     @Override
     public String toString(){
         return  "Ngo Hoang Phuc 20225903. Media{" +
@@ -59,5 +73,16 @@ public abstract class Media {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o){
+        Media mediaPhucNH = (Media) o;
+        try{
+            String titlePhucNH = mediaPhucNH.getTitlePhucNH();
+            return titlePhucNH.equals(this.getTitlePhucNH());
+        } catch (NullPointerException e){
+            return false;
+        }
+    }
 
+    
 }

@@ -10,7 +10,9 @@ public class Disc extends Media {
 
     //Constructors
     //Constructor for a disc with ID and title.
-    public Disc(int idPhucNH, String titlePhucNH){super(idPhucNH, titlePhucNH);}
+    public Disc(int idPhucNH, String titlePhucNH){
+        super(idPhucNH, titlePhucNH);
+    }
 
     //Constructor for a disc with ID, title, category, cost, director and length
     public Disc(int idPhucNH, String titlePhucNH, String categoryPhucNH, float costPhucNH, String directorPhucNH, int lengthPhucNH){

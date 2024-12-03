@@ -1,30 +1,77 @@
 package hust.soict.hedspi.aims.store;
+import hust.soict.hedspi.aims.media.Media;
 import java.util.ArrayList;
 import java.util.List;
-import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 
 public class Store {
-    // A list to hold the DigitalVideoDisc items currently in the store.
-    private List<DigitalVideoDisc> itemsInStorePhucNH = new ArrayList<DigitalVideoDisc>();
-    //Adds a DigitalVideoDisc to the store.
-    public void addDVDPhucNH(DigitalVideoDisc dvdPhucNH) {
-        itemsInStorePhucNH.add(dvdPhucNH);
-        System.out.println(dvdPhucNH.getTitlePhucNH() + " has been added to the store.");
+
+    //Attribute
+    private List<Media> itemsInStorePhucNH = new ArrayList <Media>(); // List to store available Media items in store
+    
+    //Constructor
+    public Store(){
+
     }
-    //Removes a DigitalVideoDisc from the store.
-    public void removeDVDPhucNH(DigitalVideoDisc dvdPhucNH) {
-        boolean removed = itemsInStorePhucNH.remove(dvdPhucNH);
-        if (removed) {
-            System.out.println(dvdPhucNH.getTitlePhucNH() + " has been removed from the store.");
-        } else {
-            System.out.println(dvdPhucNH.getTitlePhucNH() + " is not found in the store.");
-        }
+
+    // Method to add a new media to the store
+    public void addMedia(Media mediaPhucNH){
+        // Add media to the store
+        itemsInStorePhucNH.add(mediaPhucNH);
+        // Notify that media has been added successfully
+        System.out.println("Ngo Hoang Phuc 20225903. Added successfully");
+
     }
-    //Prints the list of all DigitalVideoDisc items in the store.
-    public void printPhucNH() {
-        for (int i = 0; i < itemsInStorePhucNH.size(); i++) {
-            System.out.println(i+1 + ". " + itemsInStorePhucNH.get(i));
+
+    //Method to remove a media from the store
+    public void removeMedia(Media mediaPhucNH){
+        //Search for media in store
+        int indexOfRemovedPhucNH = itemsInStorePhucNH.indexOf(mediaPhucNH);
+        // If the media is not found
+        if(indexOfRemovedPhucNH == -1){
+            System.out.println("Ngo Hoang Phuc 20225903. Not found media!");
+            return;
         }
+
+        // Remove the media
+        itemsInStorePhucNH.remove(indexOfRemovedPhucNH);
+        //Notify that media has been removed successfully
+        System.out.println("Ngo Hoang Phuc 20225903. Removed successfully!");
+    }
+
+    //Getters and Setters
+    //Getter for the list of items in the store
+    public List<Media> getItemsInStorePhucNH() {return itemsInStorePhucNH;}
+
+    //Setter for the list of items in the store
+    public void setItemsInStore(List<Media> itemsInStorePhucNH){
+        this.itemsInStorePhucNH = itemsInStorePhucNH;
+    }
+
+    public void print(){
+        System.out.println("***********************************LIST ITEMS IN STORE***********************************");
+        for (Media mediaPhucNH : this.itemsInStorePhucNH){
+            System.out.println(mediaPhucNH.toString());
+        }
+        System.out.println("*****************************************************************************************");
+    }
+
+    public Media findMediaById(int idPhucNH){
+        for(Media mediaPhucNH : itemsInStorePhucNH){
+            if(mediaPhucNH.getIdPhucNH() == idPhucNH){
+                return mediaPhucNH;
+            }
+        }
+        return null;
+    }
+
+    public Media findMediaByTitle(String titlePhucNH){
+        for(Media mediaPhucNH : itemsInStorePhucNH){
+            if(mediaPhucNH.getTitlePhucNH().equalsIgnoreCase(titlePhucNH)){
+                return mediaPhucNH;
+            }
+        }
+        return null;
     }
 
 }
