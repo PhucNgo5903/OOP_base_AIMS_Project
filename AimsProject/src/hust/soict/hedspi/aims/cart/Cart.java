@@ -1,122 +1,122 @@
 package hust.soict.hedspi.aims.cart;
-import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.Media;
+import java.util.*;
 
 public class Cart {
-    // Maximum number of ordered items allowed in the cart
-    public static final int MAX_NUMBERS_ORDERED_PhucNH = 20;
+    public static final int MAX_NUMBERS_ORDEREDPhucNH = 20;
+    private List<Media> itemsOrderedPhucNH = new ArrayList<Media>(); // List to store ordered Media items
 
-    // Array to hold the DigitalVideoDisc items ordered
-    private DigitalVideoDisc itemsOrderedPhucNH[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED_PhucNH];
+    //Constructor
+    public Cart(){
 
-    // Quantity of items currently ordered
-    private int qtyOrderedPhucNH = 0;
-
-    // Method to add a DigitalVideoDisc to the cart
-    public void addDigitalVideoDisc(DigitalVideoDisc discPhucNgo) {
-        // Check if there is space to add another disc
-        if (qtyOrderedPhucNH < MAX_NUMBERS_ORDERED_PhucNH) {
-            itemsOrderedPhucNH[qtyOrderedPhucNH] = discPhucNgo; // Add the disc to the cart
-            qtyOrderedPhucNH++; // Increment the quantity ordered
-            System.out.println("Ngo Hoang Phuc 20225903. The disc has been added.");
+    }
+    //Method to add a new media to the cart
+    public void addMedia(Media mediaPhucNH) {
+        if (itemsOrderedPhucNH.size() >= MAX_NUMBERS_ORDEREDPhucNH) {
+            System.out.println("The cart is almost full!");
+        } else if (itemsOrderedPhucNH.contains(mediaPhucNH)) {
+            System.out.println(mediaPhucNH.getTitlePhucNH() + " is already in the cart!");
         } else {
-            // Inform the user if the cart is full
-            System.out.println("Ngo Hoang Phuc 20225903. The cart is almost full.");
+            itemsOrderedPhucNH.add(mediaPhucNH);
+            System.out.println(mediaPhucNH.getTitlePhucNH() + " has been added!");
         }
     }
-    
-    public void addDigitalVideoDisc(DigitalVideoDisc [] dvdListPhucNgo) {
-        if (dvdListPhucNgo.length > MAX_NUMBERS_ORDERED_PhucNH) {
-            System.out.println("Ngo Hoang Phuc 20225903. The cart is almost full!");
-        } else {
-            for (int i = 0; i < dvdListPhucNgo.length; i++) {
-                itemsOrderedPhucNH[qtyOrderedPhucNH] = dvdListPhucNgo[i];
-                System.out.println("Ngo Hoang Phuc 20225903. " + dvdListPhucNgo[i].getTitlePhucNH() + " has been added!");
-                qtyOrderedPhucNH +=1 ;
-            }
-    
+    //Method to remove a media from the cart
+    public void removeMedia(Media mediaPhucNH){
+        int indexOfRemovedPhucNH = itemsOrderedPhucNH.indexOf(mediaPhucNH);
+        //If not found
+        if(indexOfRemovedPhucNH == -1){
+            System.out.println("Ngo Hoang Phuc 20225903. Not found media!");
+            return;
         }
+        //Remove
+        itemsOrderedPhucNH.remove(indexOfRemovedPhucNH);
+        //Notify
+        System.out.println("Removed successfully");
     }
-    public void addDigitalVideoDisc(DigitalVideoDisc dvd1PhucNgo,DigitalVideoDisc dvd2PhucNgo) {
-        DigitalVideoDisc [] dvdListPhucNgo = {dvd1PhucNgo, dvd2PhucNgo};
-        addDigitalVideoDisc(dvdListPhucNgo);
-    }
-    
-
-
-    // Method to remove a DigitalVideoDisc from the cart
-    public void removeDigitalVideoDisc(DigitalVideoDisc discPhucNgo) {
-        boolean foundPhucNH = false; // Flag to check if the disc is found
-        // Iterate through the ordered items to find the disc
-        for (int i = 0; i < qtyOrderedPhucNH; i++) {
-            // Check if the current item matches the disc to be removed
-            if (itemsOrderedPhucNH[i] == discPhucNgo) {
-                foundPhucNH = true; // Set the flag to true if found
-                // Shift items down to remove the disc from the cart
-                for (int j = i; j < qtyOrderedPhucNH - 1; j++) {
-                    itemsOrderedPhucNH[j] = itemsOrderedPhucNH[j + 1];
-                }
-                itemsOrderedPhucNH[qtyOrderedPhucNH - 1] = null; // Nullify the last item
-                qtyOrderedPhucNH--; // Decrement the quantity ordered
-                System.out.println("Ngo Hoang Phuc 20225903. The disc has been removed.");
-                break; 
-            }
-        }
-        // Inform the user if the disc was not found
-        if (!foundPhucNH) {
-            System.out.println("Ngo Hoang Phuc 20225903. The disc is not found in the cart.");
-        }
-    }
-
     // Method to calculate the total cost of items in the cart
-    public float totalCost() {
-        float totalPhucNH = 0; // Initialize total cost
-        // Iterate through the ordered items to calculate the total cost
-        for (int i = 0; i < qtyOrderedPhucNH; i++) {
-            totalPhucNH += itemsOrderedPhucNH[i].getCostPhucNH(); // Add the cost of each item
+    public double totalCost(){
+        float costPhucNH = 0;
+        for(Media mediaPhucNH : itemsOrderedPhucNH){
+            costPhucNH += mediaPhucNH.getCostPhucNH();
         }
-        return totalPhucNH; 
+        return Math.round(costPhucNH * 100.0)/ 100.0;
+    }
+    // Method to print the list of ordered items in the cart
+    // Including the details of each items and the total cost
+    public void print(){
+        System.out.println("**********************************Cart**********************************");
+        System.out.println("Ordered Items:");
+        for(Media mediaPhucNH : itemsOrderedPhucNH){
+            mediaPhucNH.print();
+        }
+        System.out.println("Total cost: " + totalCost());
+        System.out.println("************************************************************************");
     }
 
-
-    
-    
-    public void print() {
-        System.out.println("**********************************************Ngo Hoang Phuc 20225903 CART**********************************************");
-        System.out.println("Ngo Hoang Phuc 20225903. Ordered Items:");
-        for (int i = 0; i < qtyOrderedPhucNH; i++) {
-            System.out.println("Ngo Hoang Phuc 20225903. " + (i+1) + ". " + "DVD - " + itemsOrderedPhucNH[i].getTitlePhucNH() 
-            + " - " + itemsOrderedPhucNH[i].getCategoryPhucNH() + " - " + itemsOrderedPhucNH[i].getDirectorPhucNH() + " - " + 
-            itemsOrderedPhucNH[i].getLengthPhucNH() + ": " + itemsOrderedPhucNH[i].getCostPhucNH() + "$");
+    //Search to remove items in cart  
+    public Media searchToRemove(int id) {
+        for (Media mediaPhucNH : itemsOrderedPhucNH) {
+            if (mediaPhucNH.getIdPhucNH() == id) {  // So sánh ID của media
+                return mediaPhucNH;
+            }
         }
-        System.out.println("Ngo Hoang Phuc 20225903. Total cost: " + totalCost());
-        System.out.println("************************************************************************************************************************");
+        return null;
     }
-
+    //Search by ID  
     public void searchByID(int idPhucNH){
-        boolean found = false;
-        for(int i = 0; i< qtyOrderedPhucNH; i++){
-            if(itemsOrderedPhucNH[i].getIdPhucNH() == idPhucNH){
-                System.out.println("Ngo Hoang Phuc 20225903. Found" + itemsOrderedPhucNH[i]);
-                found = true;
+        boolean foundPhucNH = false;
+        for(Media mediaPhucNH : itemsOrderedPhucNH){
+            if(mediaPhucNH.getIdPhucNH() == idPhucNH){
+                foundPhucNH = true;
+                mediaPhucNH.print();
             }
         }
-        if(!found){
-            System.out.println("Ngo Hoang Phuc 20225903. Sorry, no DVDs were found with the ID provided!");
+        if(!foundPhucNH){
+            System.out.println("Ngo Hoang Phuc 20225903. Not found media!");
         }
     }
 
-    public void searchByTitle(String keywordPhucNH){
-        boolean found = false;
-        for (int i = 0; i< qtyOrderedPhucNH; i++){
-            if(itemsOrderedPhucNH[i].isMatchPhucNH(keywordPhucNH)){
-                System.out.println("Ngo Hoang Phuc 20225903. Found " + itemsOrderedPhucNH[i]);
-                found = true;
+    // Method to search for DVDs in the cart by title and print the results
+    public void searchByTitle(String titlePhucNH){
+        boolean foundPhucNH = false;
+        for(Media mediaPhucNH : itemsOrderedPhucNH){
+            if(mediaPhucNH.isMatchPhucNH(titlePhucNH)){
+                foundPhucNH = true;
+                mediaPhucNH.print();
             }
         }
-        if(!found){
-            System.out.println("Ngo Hoang Phuc 20225903. Sorry, no DVDs were found with \"" + keywordPhucNH + "\" in the title!");
+        if(!foundPhucNH){
+            System.out.println("Ngo Hoang Phuc 20225903. Not found media!");
         }
     }
-
-
+    //Create order method
+    public void emptyCartPhucNH(){
+        itemsOrderedPhucNH.clear();
+        System.out.println("Ngo Hoang Phuc 20225903. Order created!");
+    }
+    //Get items ordered method
+    public List<Media> getItemsOrderedPhucNH(){
+        return itemsOrderedPhucNH;
+    }
+    //Sort media by title method
+    public void sortMediaByTitle() {
+        Collections.sort((List<Media>)itemsOrderedPhucNH, Media.COMPARE_BY_TITLE_COST);
+        Iterator<Media> iterator = itemsOrderedPhucNH.iterator();
+        iterator = itemsOrderedPhucNH.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
+    //Sort media by cost method
+    public void sortMediaByCost() {
+        Collections.sort((List<Media>)itemsOrderedPhucNH, Media.COMPARE_BY_COST_TITLE);
+        Iterator<Media> iterator = itemsOrderedPhucNH.iterator();
+        iterator = itemsOrderedPhucNH.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(((Media)iterator.next()).toString());
+        }
+    }
 }

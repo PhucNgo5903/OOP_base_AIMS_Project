@@ -1,14 +1,44 @@
-1. Is JAVA a Pass by Value or a Pass by Reference programming language?
-Java is a passed by value programming language.
+Question: Alternatively, to compare items in the cart, instead of using Comparator, we can use the Comparable interface and override the compareTo() method. You can refer to the Java docs to see the information of this interface.
+Suppose we are taking this Comparable interface approach.
+- What class should implement the Comparable interface?    
+    Media class should implement the Comparable interface
 
-2. After the call of swap(jungleDVDPhucNH, cinderellaDVDPhucNH) why does the title of these two
-objects still remain?
-Because the swap() method is exchanging the values of the title fields between the two objects, but it's not changing the object references themselves. So the jungleDVDPhucNH and cinderellaDVDPhucNH object references still point to the same objects in memory as before the swap() method call.
+- In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?  
+    @Override
+    public int compareTo(Media otherPhucNH) {
+        int titleComparisonPhucNH = this.getTitlePhucNH().compareTo(otherPhucNH.getTitlePhucNH());
+        if (titleComparisonPhucNH != 0) {
+            return titleComparisonPhucNH;
+        } else {
+            return Double.compare(this.getCostPhucNH(), otherPhucNH.getCostPhucNH());
+        }
+    }
 
-3. After the call of changeTitle(jungleDVDPhucNH, cinderellaDVDPhucNH.getTitlePhucNH()) why is
-the title of the JungleDVD changed?
-Because the changeTitle() method is modifying the title field of the jungleDVDPhucNH object directly using the setter method.
+- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?  
+    No we cannot. The Comparable interface assumes that there is only one natural ordering for the objects being compared.
 
-4. Write a toString() method for the DigitalVideoDisc class. What should be the return type of
-this method?
-The return type should be String
+- Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?  
+    We can override the compareTo method in Disc class to reflect the new ordering rule.  
+    @Override
+    public int compareTo(Media otherPhucNH) {
+        if (otherPhucNH instanceof Disc) {
+            Disc otherDVDPhucNH = (Disc) otherPhucNH;
+            int titleComparisonPhucNH = this.getTitlePhucNH().compareTo(otherDVDPhucNH.getTitlePhucNH());
+            if (titleComparisonPhucNH != 0) {
+                // Compare by title
+                return titleComparisonPhucNH;
+            } else {
+                // Compare by decreasing length
+                int lengthComparisonPhucNH = Integer.compare(otherDVDPhucNH.getLengthPhucNH(), this.getLengthPhucNH());
+                if (lengthComparisonPhucNH != 0) {
+                    return lengthComparisonPhucNH;
+                } else {
+                    // Compare by cost
+                    return Double.compare(this.getCostPhucNH(), otherDVDPhucNH.getCostPhucNH());
+                }
+            }
+        } else {
+            // If the media object is not a Disc, use the default method of the Media class
+            return super.compareTo(otherPhucNH);
+        }
+    }
