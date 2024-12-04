@@ -3,26 +3,20 @@ import hust.soict.hedspi.aims.media.Media;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Store {
-
     //Attribute
     private List<Media> itemsInStorePhucNH = new ArrayList <Media>(); // List to store available Media items in store
     
     //Constructor
     public Store(){
-
     }
-
     // Method to add a new media to the store
     public void addMedia(Media mediaPhucNH){
         // Add media to the store
         itemsInStorePhucNH.add(mediaPhucNH);
         // Notify that media has been added successfully
         System.out.println("Ngo Hoang Phuc 20225903. Added successfully");
-
     }
-
     //Method to remove a media from the store
     public void removeMedia(Media mediaPhucNH){
         //Search for media in store
@@ -32,13 +26,11 @@ public class Store {
             System.out.println("Ngo Hoang Phuc 20225903. Not found media!");
             return;
         }
-
         // Remove the media
         itemsInStorePhucNH.remove(indexOfRemovedPhucNH);
         //Notify that media has been removed successfully
         System.out.println("Ngo Hoang Phuc 20225903. Removed successfully!");
     }
-
     //Getters and Setters
     //Getter for the list of items in the store
     public List<Media> getItemsInStorePhucNH() {return itemsInStorePhucNH;}
@@ -47,7 +39,7 @@ public class Store {
     public void setItemsInStore(List<Media> itemsInStorePhucNH){
         this.itemsInStorePhucNH = itemsInStorePhucNH;
     }
-
+    //Print items in store method
     public void print(){
         System.out.println("***********************************LIST ITEMS IN STORE***********************************");
         for (Media mediaPhucNH : this.itemsInStorePhucNH){
@@ -55,7 +47,7 @@ public class Store {
         }
         System.out.println("*****************************************************************************************");
     }
-
+    //Find media by id method
     public Media findMediaById(int idPhucNH){
         for(Media mediaPhucNH : itemsInStorePhucNH){
             if(mediaPhucNH.getIdPhucNH() == idPhucNH){
@@ -64,7 +56,7 @@ public class Store {
         }
         return null;
     }
-
+    //Find media by title method
     public Media findMediaByTitle(String titlePhucNH){
         for(Media mediaPhucNH : itemsInStorePhucNH){
             if(mediaPhucNH.getTitlePhucNH().equalsIgnoreCase(titlePhucNH)){

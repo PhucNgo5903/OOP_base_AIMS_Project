@@ -20,8 +20,8 @@ public class Track implements Playable {
 
     // Method to play the track
     public void play() {
-        System.out.println("Playing track: " + titlePhucNH);
-        System.out.println("Track length: " + lengthPhucNH + " seconds");
+        System.out.println("Ngo Hoang Phuc 20225903. Playing track: " + titlePhucNH);
+        System.out.println("Ngo Hoang Phuc 20225903. Track length: " + lengthPhucNH + " seconds");
     }
 
     @Override

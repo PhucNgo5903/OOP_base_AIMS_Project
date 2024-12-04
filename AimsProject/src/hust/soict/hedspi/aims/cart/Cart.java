@@ -1,9 +1,6 @@
 package hust.soict.hedspi.aims.cart;
-
 import hust.soict.hedspi.aims.media.Media;
-
 import java.util.*;
-
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDEREDPhucNH = 20;
@@ -13,7 +10,6 @@ public class Cart {
     public Cart(){
 
     }
-
     //Method to add a new media to the cart
     public void addMedia(Media mediaPhucNH) {
         if (itemsOrderedPhucNH.size() >= MAX_NUMBERS_ORDEREDPhucNH) {
@@ -25,7 +21,6 @@ public class Cart {
             System.out.println(mediaPhucNH.getTitlePhucNH() + " has been added!");
         }
     }
-
     //Method to remove a media from the cart
     public void removeMedia(Media mediaPhucNH){
         int indexOfRemovedPhucNH = itemsOrderedPhucNH.indexOf(mediaPhucNH);
@@ -39,7 +34,6 @@ public class Cart {
         //Notify
         System.out.println("Removed successfully");
     }
-
     // Method to calculate the total cost of items in the cart
     public double totalCost(){
         float costPhucNH = 0;
@@ -48,10 +42,8 @@ public class Cart {
         }
         return Math.round(costPhucNH * 100.0)/ 100.0;
     }
-
     // Method to print the list of ordered items in the cart
     // Including the details of each items and the total cost
-
     public void print(){
         System.out.println("**********************************Cart**********************************");
         System.out.println("Ordered Items:");
@@ -62,8 +54,7 @@ public class Cart {
         System.out.println("************************************************************************");
     }
 
-
-    
+    //Search to remove items in cart  
     public Media searchToRemove(int id) {
         for (Media mediaPhucNH : itemsOrderedPhucNH) {
             if (mediaPhucNH.getIdPhucNH() == id) {  // So sánh ID của media
@@ -72,7 +63,7 @@ public class Cart {
         }
         return null;
     }
-
+    //Search by ID  
     public void searchByID(int idPhucNH){
         boolean foundPhucNH = false;
         for(Media mediaPhucNH : itemsOrderedPhucNH){
@@ -99,18 +90,16 @@ public class Cart {
             System.out.println("Ngo Hoang Phuc 20225903. Not found media!");
         }
     }
-
+    //Create order method
     public void emptyCartPhucNH(){
         itemsOrderedPhucNH.clear();
         System.out.println("Ngo Hoang Phuc 20225903. Order created!");
     }
-
+    //Get items ordered method
     public List<Media> getItemsOrderedPhucNH(){
         return itemsOrderedPhucNH;
     }
-
-    
-
+    //Sort media by title method
     public void sortMediaByTitle() {
         Collections.sort((List<Media>)itemsOrderedPhucNH, Media.COMPARE_BY_TITLE_COST);
         Iterator<Media> iterator = itemsOrderedPhucNH.iterator();
@@ -120,6 +109,7 @@ public class Cart {
             System.out.println(((Media)iterator.next()).toString());
         }
     }
+    //Sort media by cost method
     public void sortMediaByCost() {
         Collections.sort((List<Media>)itemsOrderedPhucNH, Media.COMPARE_BY_COST_TITLE);
         Iterator<Media> iterator = itemsOrderedPhucNH.iterator();

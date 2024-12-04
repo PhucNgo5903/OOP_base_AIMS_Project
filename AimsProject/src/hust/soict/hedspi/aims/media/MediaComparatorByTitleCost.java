@@ -1,28 +1,28 @@
 package hust.soict.hedspi.aims.media;
 
 import java.util.Comparator;
-
+//MediaComparatorByTitleCost Class
 public class MediaComparatorByTitleCost implements Comparator<Media> {
     @Override
-    public int compare (Media o1, Media o2) {
+    public int compare (Media o1PhucNH, Media o2PhucNH) {
         try {
-            if (o1.getTitlePhucNH().compareTo(o2.getTitlePhucNH()) > 0) {
+            if (o1PhucNH.getTitlePhucNH().compareTo(o2PhucNH.getTitlePhucNH()) > 0) {
                 return -1;
-            } else if (o1.getTitlePhucNH().compareTo(o2.getTitlePhucNH()) < 0) {
+            } else if (o1PhucNH.getTitlePhucNH().compareTo(o2PhucNH.getTitlePhucNH()) < 0) {
                 return 1;
             } else {
-                if (o1.getCostPhucNH() > o2.getCostPhucNH()) {
+                if (o1PhucNH.getCostPhucNH() > o2PhucNH.getCostPhucNH()) {
                     return -1;
-                } else if (o1.getCostPhucNH() < o2.getCostPhucNH()) {
+                } else if (o1PhucNH.getCostPhucNH() < o2PhucNH.getCostPhucNH()) {
                     return 1;
                 }
             }
         } catch (NullPointerException e) {
-            if (o1.getTitlePhucNH() == null && o2.getTitlePhucNH() == null)
+            if (o1PhucNH.getTitlePhucNH() == null && o2PhucNH.getTitlePhucNH() == null)
                 return -1;
-            if (o1.getTitlePhucNH() != null && o2.getTitlePhucNH() == null)
+            if (o1PhucNH.getTitlePhucNH() != null && o2PhucNH.getTitlePhucNH() == null)
                 return -1;
-            if (o1.getTitlePhucNH() == null && o2.getTitlePhucNH() != null)
+            if (o1PhucNH.getTitlePhucNH() == null && o2PhucNH.getTitlePhucNH() != null)
                 return 1;
         }
         return 0;

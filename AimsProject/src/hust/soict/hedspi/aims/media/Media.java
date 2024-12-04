@@ -36,33 +36,21 @@ public abstract class Media {
         System.out.println("Category: " + categoryPhucNH);
         System.out.println("Cost: " + costPhucNH + "$");
     }
-
     // Method to check if the title matches the media
-
     public int getIdPhucNH() {return idPhucNH;}
-
     public void setIdPhucNH(int idPhucNH) {this.idPhucNH = idPhucNH;}
-
     public String getTitlePhucNH() {return titlePhucNH;}
-
     public void setTitlePhucNH(String titlePhucNH){this.titlePhucNH = titlePhucNH;}
-
     public String getCategoryPhucNH(){return categoryPhucNH;}
-
     public void setCategoryPhucNH(String categoryPhucNH){this.categoryPhucNH = categoryPhucNH;}
-
     public float getCostPhucNH(){return costPhucNH;}
-
     public void setCostPhucNH(float costPhucNH){this.costPhucNH = costPhucNH;}
-
     public boolean isMatchPhucNH(String title) {
         return this.titlePhucNH.toLowerCase().contains(title.toLowerCase());
     }
-
     public void play() {
         System.out.println("Playing media");
     }
-
     @Override
     public String toString(){
         return  "Ngo Hoang Phuc 20225903. Media{" +
@@ -72,7 +60,6 @@ public abstract class Media {
                 ", cost=" + costPhucNH +
                 '}';
     }
-
     @Override
     public boolean equals(Object o){
         Media mediaPhucNH = (Media) o;
@@ -82,7 +69,5 @@ public abstract class Media {
         } catch (NullPointerException e){
             return false;
         }
-    }
-
-    
+    }   
 }

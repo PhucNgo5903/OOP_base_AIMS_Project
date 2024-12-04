@@ -1,19 +1,19 @@
 package hust.soict.hedspi.aims.media;
 
 import java.util.Comparator;
-
+//MediaComparatorByCostTitle Class
 public class MediaComparatorByCostTitle implements Comparator<Media> {
 
     @Override
-    public int compare(Media o1, Media o2){
-        if(o1.getCostPhucNH() > o2.getCostPhucNH()){
+    public int compare(Media o1PhucNH, Media o2PhucNH){
+        if(o1PhucNH.getCostPhucNH() > o2PhucNH.getCostPhucNH()){
             return -1;
-        } else if (o1.getCostPhucNH() < o2.getCostPhucNH()){
+        } else if (o1PhucNH.getCostPhucNH() < o2PhucNH.getCostPhucNH()){
             return 1;
         }else{
-            if(o1.getTitlePhucNH() != null && o2.getTitlePhucNH() != null)
-                return -o1.getTitlePhucNH().compareTo(o2.getTitlePhucNH());
-            if(o1.getTitlePhucNH() == null && o2.getTitlePhucNH() == null)
+            if(o1PhucNH.getTitlePhucNH() != null && o2PhucNH.getTitlePhucNH() != null)
+                return -o1PhucNH.getTitlePhucNH().compareTo(o2PhucNH.getTitlePhucNH());
+            if(o1PhucNH.getTitlePhucNH() == null && o2PhucNH.getTitlePhucNH() == null)
                 return -1;
             return 0;
         }
