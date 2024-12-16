@@ -57,17 +57,17 @@ public class Aims {
     // init store setup 
     public static void initSetup() {
 
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc(1, "The Lion King", "Animation", "Roger Allers", 87, 19.95f);     
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc(2,"Star War", "Science Fiction", "George Lucas", 87, 24.95f); 
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc( "The Lion King", "Animation", "Roger Allers", 87, 19.95f);     
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star War", "Science Fiction", "George Lucas", 87, 24.95f); 
         DigitalVideoDisc dvd3 = new DigitalVideoDisc(3,"Aladin", "Animation", 18.99f);
         store.addMedia(dvd1);
         store.addMedia(dvd2);
         store.addMedia(dvd3);
 
     
-        Book book = new Book(4,"Edogawa Conan", "Detective", 20.00f);
-        Book book1 = new Book(5,"The beauty of human", "Biography", 202.00f);
-        Book book2 = new Book(6,"First Day On Mars", "Science", 120.00f);
+        Book book = new Book("Edogawa Conan", "Detective", 20.00f);
+        Book book1 = new Book("The beauty of human", "Biography", 202.00f);
+        Book book2 = new Book("First Day On Mars", "Science", 120.00f);
         store.addMedia(book);
         store.addMedia(book1);
         store.addMedia(book2);
@@ -402,7 +402,7 @@ public class Aims {
                     float bookCost = scanner.nextFloat();
                     scanner.nextLine();
 
-                    Book newBook = new Book(bookId, bookTitle, bookCategory, bookCost);
+                    Book newBook = new Book(bookTitle, bookCategory, bookCost);
                     store.addMedia(newBook);
                 } else if (categoryChoice == 2) {
                     System.out.println("Enter CD ID: PhucNH");

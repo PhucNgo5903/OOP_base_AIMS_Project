@@ -8,8 +8,8 @@ public class Book extends Media {
     private List<String> authorsPhucNH = new ArrayList<>();
 
     // Constructor
-    public Book(int idPhucNH, String titlePhucNH, String categoryPhucNH, float costPhucNH) {
-        super(idPhucNH, titlePhucNH, categoryPhucNH, costPhucNH);
+    public Book( String titlePhucNH, String categoryPhucNH, float costPhucNH) {
+        super(titlePhucNH, categoryPhucNH, costPhucNH);
     }
 
     // Method to add an author

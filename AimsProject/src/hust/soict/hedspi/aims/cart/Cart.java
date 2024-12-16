@@ -1,26 +1,44 @@
 package hust.soict.hedspi.aims.cart;
 import hust.soict.hedspi.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.*;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDEREDPhucNH = 20;
-    private List<Media> itemsOrderedPhucNH = new ArrayList<Media>(); // List to store ordered Media items
-
+    //private List<Media> itemsOrderedPhucNH = new ArrayList<Media>(); // List to store ordered Media items
+    private ObservableList<Media> itemsOrderedPhucNH = FXCollections.observableArrayList();
+    public ObservableList<Media> getItemsOrdered() {
+		return itemsOrderedPhucNH;
+	}
     //Constructor
     public Cart(){
 
     }
     //Method to add a new media to the cart
-    public void addMedia(Media mediaPhucNH) {
+    // public void addMedia(Media mediaPhucNH) {
+    //     if (itemsOrderedPhucNH.size() >= MAX_NUMBERS_ORDEREDPhucNH) {
+    //         System.out.println("The cart is almost full!");
+    //     } else if (itemsOrderedPhucNH.contains(mediaPhucNH)) {
+    //         System.out.println(mediaPhucNH.getTitlePhucNH() + " is already in the cart!");
+    //     } else {
+    //         itemsOrderedPhucNH.add(mediaPhucNH);
+    //         System.out.println(mediaPhucNH.getTitlePhucNH() + " has been added!");
+    //     }
+    // }
+
+    public String addMedia(Media mediaPhucNH) {
         if (itemsOrderedPhucNH.size() >= MAX_NUMBERS_ORDEREDPhucNH) {
-            System.out.println("The cart is almost full!");
+            return "The cart is almost full!";
         } else if (itemsOrderedPhucNH.contains(mediaPhucNH)) {
-            System.out.println(mediaPhucNH.getTitlePhucNH() + " is already in the cart!");
+            return mediaPhucNH.getTitlePhucNH() + " is already in the cart!";
         } else {
             itemsOrderedPhucNH.add(mediaPhucNH);
-            System.out.println(mediaPhucNH.getTitlePhucNH() + " has been added!");
+            return mediaPhucNH.getTitlePhucNH() + " has been added!";
         }
     }
+
     //Method to remove a media from the cart
     public void removeMedia(Media mediaPhucNH){
         int indexOfRemovedPhucNH = itemsOrderedPhucNH.indexOf(mediaPhucNH);

@@ -21,6 +21,21 @@ public class Disc extends Media {
         this.lengthPhucNH = lengthPhucNH;
     }
 
+    public Disc(String titlePhucNH, String categoryPhucNH, String directorPhucNH, float costPhucNH) {
+        super(titlePhucNH, categoryPhucNH, costPhucNH);
+        this.directorPhucNH = directorPhucNH;
+    }
+
+    public Disc( String titlePhucNH, String categoryPhucNH, float costPhucNH) {
+        super(titlePhucNH, categoryPhucNH, costPhucNH);
+    }
+
+    public Disc(String titlePhucNH, String categoryPhucNH, String directorPhucNH, int lengthPhucNH, float costPhucNH) {
+        super(titlePhucNH, categoryPhucNH, costPhucNH);
+        this.directorPhucNH = directorPhucNH;
+        this.lengthPhucNH = lengthPhucNH;
+    }
+
     //Getters and Setters
     //Getter and Setter for the director of the disc
     public String getDirectorPhucNH(){ return directorPhucNH;}

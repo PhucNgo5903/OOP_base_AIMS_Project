@@ -1,4 +1,5 @@
 package hust.soict.hedspi.aims.media;
+
 public class DigitalVideoDisc extends Disc implements Playable {
     // Constructor for a DVD with ID and title.
     public DigitalVideoDisc(int idPhucNH, String titlePhucNH) {
@@ -11,14 +12,14 @@ public class DigitalVideoDisc extends Disc implements Playable {
         this.setCostPhucNH(costPhucNH);
     }
     // Constructor for a DVD with ID, title, category, director, and cost.
-    public DigitalVideoDisc(int idPhucNH, String titlePhucNH, String categoryPhucNH, String directorPhucNH, float costPhucNH) {
-        this(idPhucNH, titlePhucNH, categoryPhucNH, costPhucNH);
-        this.setDirectorPhucNH(directorPhucNH);
+    public DigitalVideoDisc( String titlePhucNH, String categoryPhucNH, String directorPhucNH, float costPhucNH) {
+        super(titlePhucNH, categoryPhucNH,directorPhucNH, costPhucNH);
+        
     }
     // Constructor for a DVD with ID, title, category, director, length, and cost.
-    public DigitalVideoDisc(int idPhucNH, String titlePhucNH, String categoryPhucNH, String directorPhucNH, int lengthPhucNH, float costPhucNH) {
-        this(idPhucNH, titlePhucNH, categoryPhucNH, directorPhucNH, costPhucNH);
-        this.setLengthPhucNH(lengthPhucNH);
+    public DigitalVideoDisc( String titlePhucNH, String categoryPhucNH, String directorPhucNH, int lengthPhucNH, float costPhucNH) {
+        super(titlePhucNH, categoryPhucNH, directorPhucNH,lengthPhucNH, costPhucNH);
+        
     }
     // Method to print details of a DVD
     @Override

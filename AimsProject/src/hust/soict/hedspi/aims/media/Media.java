@@ -3,6 +3,8 @@ package hust.soict.hedspi.aims.media;
 import java.util.Comparator;
 import java.util.Objects;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 public abstract class Media {
     // Attributes
     private int idPhucNH; // Unique identifier for the media
@@ -14,7 +16,8 @@ public abstract class Media {
             new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE =
             new MediaComparatorByCostTitle();
-
+    
+    private static int nbMedia = 0;
     // Constructors
     public Media(int idPhucNH, String titlePhucNH) {
         this.idPhucNH = idPhucNH;
@@ -26,6 +29,13 @@ public abstract class Media {
         this.titlePhucNH = titlePhucNH;
         this.categoryPhucNH = categoryPhucNH;
         this.costPhucNH = costPhucNH;
+    }
+
+    public Media(String titlePhucNH, String categoryPhucNH, float costPhucNH) {
+        this.titlePhucNH = titlePhucNH;
+        this.categoryPhucNH = categoryPhucNH;
+        this.costPhucNH = costPhucNH;
+        this.idPhucNH = ++nbMedia;
     }
 
     // Method to print details of the media
@@ -50,6 +60,9 @@ public abstract class Media {
     }
     public void play() {
         System.out.println("Playing media");
+    }
+    public String playGUI() throws PlayerException {
+        return "Playing media";
     }
     @Override
     public String toString(){

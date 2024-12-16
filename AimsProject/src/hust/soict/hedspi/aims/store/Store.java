@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Store {
     //Attribute
-    private List<Media> itemsInStorePhucNH = new ArrayList <Media>(); // List to store available Media items in store
+    private ArrayList<Media> itemsInStorePhucNH = new ArrayList <Media>(); // List to store available Media items in store
     
     //Constructor
     public Store(){
@@ -33,10 +33,10 @@ public class Store {
     }
     //Getters and Setters
     //Getter for the list of items in the store
-    public List<Media> getItemsInStorePhucNH() {return itemsInStorePhucNH;}
+    public ArrayList<Media> getItemsInStorePhucNH() {return itemsInStorePhucNH;}
 
     //Setter for the list of items in the store
-    public void setItemsInStore(List<Media> itemsInStorePhucNH){
+    public void setItemsInStore(ArrayList<Media> itemsInStorePhucNH){
         this.itemsInStorePhucNH = itemsInStorePhucNH;
     }
     //Print items in store method
