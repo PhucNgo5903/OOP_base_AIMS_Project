@@ -1,5 +1,5 @@
 {
-    // "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": ["src"],
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "c:\\Users\\ADMIN\\Desktop\\HUST\\2024.1\\OOP Lab\\javafx-sdk-23.0.1\\lib\\javafx.base.jar",
