@@ -10,14 +10,14 @@
             "request": "launch",
             "mainClass": "${file}"
         },
-        // {
-        //     "type": "java",
-        //     "name": "AWTAccumulator",
-        //     "request": "launch",
-        //     "mainClass": "hust.soict.hedspi.swing.AWTAccumulator",
-        //     "projectName": "IT3103.744527.2024.1.20225903.NgoHoangPhuc_2355b99",
-        //     "vmArgs": "--module-path \"C:/Users/ADMIN/Desktop/HUST/2024.1/OOP Lab/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        // },
+        {
+            "type": "java",
+            "name": "AWTAccumulator",
+            "request": "launch",
+            "mainClass": "hust.soict.hedspi.swing.AWTAccumulator",
+            "projectName": "IT3103.744527.2024.1.20225903.NgoHoangPhuc_2355b99",
+            "vmArgs": "--module-path \"C:/Users/ADMIN/Desktop/HUST/2024.1/OOP Lab/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
         {
             "type": "java",
             "name": "Painter",
